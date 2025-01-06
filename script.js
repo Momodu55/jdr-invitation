@@ -16,7 +16,7 @@ const ogre = {
     deadSize: 150 // Taille agrandie de l'ogre mort
 };
 ogre.img.src = "ogre.png";
-ogre.deadImg.src = "/Users/mbrown/Desktop/Jeu Taverne/ogre mort.png";
+ogre.deadImg.src = "ogre_mort.png";
 
 // Image de la fumée
 const smokeImg = new Image();
@@ -29,7 +29,7 @@ smokeImg.onload = () => {
 
 // Image de l'invitation
 const invitationImg = new Image();
-invitationImg.src = "/Users/mbrown/Desktop/Jeu Taverne/Invitation.png";
+invitationImg.src = "Invitation.png";
 
 // État du jeu
 let gameRunning = false;
@@ -40,7 +40,7 @@ musique.loop = true;
 
 // Fond
 const background = new Image();
-background.src = "/Users/mbrown/Desktop/Jeu Taverne/fond.png";
+background.src = "fond.png";
 
 // Événement pour démarrer le jeu
 document.getElementById("startImage").addEventListener("click", startGame);
@@ -120,7 +120,7 @@ function drawSmoke() {
 function displayInvitation() {
     gameRunning = false;
 
-    const combinedSound = new Audio("sword_swinging ogre dies.mp3");
+    const combinedSound = new Audio("sword_swinging_ogre_dies.mp3");
 
     combinedSound.addEventListener("play", () => {
         ogre.img = ogre.deadImg; 
@@ -140,7 +140,7 @@ function displayInvitation() {
 
         // Créer et afficher l'image d'invitation
         const invitationElement = document.createElement("img");
-        invitationElement.src = "/Users/mbrown/Desktop/Jeu Taverne/Invitation.png";
+        invitationElement.src = "Invitation.png";
         invitationElement.alt = "Invitation";
         invitationElement.style.width = "100%"; // Ajuster pour plein écran
         invitationElement.style.height = "100%"; // Ajuster pour plein écran
