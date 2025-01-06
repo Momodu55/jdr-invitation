@@ -16,11 +16,11 @@ const ogre = {
     deadSize: 150 // Taille agrandie de l'ogre mort
 };
 ogre.img.src = "ogre.png";
-ogre.deadImg.src = "ogre_mort.png";
+ogre.deadImg.src = "ogre mort.png";
 
 // Image de la fumée
 const smokeImg = new Image();
-smokeImg.src = "smoke.png";
+smokeImg.src = "smoke.png"; // Ajoutez smoke.png si elle manque, sinon commentez cette ligne.
 let smokeLoaded = false;
 
 smokeImg.onload = () => {
@@ -120,7 +120,7 @@ function drawSmoke() {
 function displayInvitation() {
     gameRunning = false;
 
-    const combinedSound = new Audio("sword_swinging_ogre_dies.mp3");
+    const combinedSound = new Audio("sword_swinging ogre dies.mp3");
 
     combinedSound.addEventListener("play", () => {
         ogre.img = ogre.deadImg; 
@@ -128,26 +128,27 @@ function displayInvitation() {
         drawGame();
     });
 
-    combinedSound.play();
+    combinedSound.play().catch(error => {
+        console.error("Erreur lors de la lecture du son : ", error);
+    });
 
     combinedSound.onended = function() {
         musique.pause();
-        
-        // Masquer le canevas et afficher l'image d'invitation en plein écran
-        canvas.style.display = "none"; // Masque le canevas
-        document.getElementById("startImage").style.display = "none"; // Masque l'image de démarrage
-        document.getElementById("message").innerHTML = ''; // Vide le contenu du message
 
-        // Créer et afficher l'image d'invitation
+        // Masquer le canevas et afficher l'invitation
+        canvas.style.display = "none";
+        document.getElementById("startImage").style.display = "none";
+        document.getElementById("message").innerHTML = '';
+
         const invitationElement = document.createElement("img");
         invitationElement.src = "Invitation.png";
         invitationElement.alt = "Invitation";
-        invitationElement.style.width = "100%"; // Ajuster pour plein écran
-        invitationElement.style.height = "100%"; // Ajuster pour plein écran
+        invitationElement.style.width = "100%";
+        invitationElement.style.height = "100%";
         invitationElement.style.position = "fixed";
         invitationElement.style.top = "0";
         invitationElement.style.left = "0";
-        invitationElement.style.zIndex = "100"; // Place l'image au-dessus de tout
+        invitationElement.style.zIndex = "100";
         document.body.appendChild(invitationElement);
 
         playCelebration();
