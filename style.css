@@ -1,0 +1,12 @@
+<style>
+    body {
+        font-family: 'MedievalSharp', cursive; /* Changez le nom pour la police de votre choix */
+        background-color: #4d3c24; /* Couleur marron médievale */
+        color: white; /* Couleur du texte en blanc */
+        text-align: center; /* Centrer le texte */
+    }
+
+    #message {
+        margin-top: 20px; /* Espacement au-dessus du message */
+    }
+</style>
